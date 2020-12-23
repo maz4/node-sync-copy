@@ -9,5 +9,8 @@ const input = inputArg || INPUT_DIR;
 const output = outputArg || OUTPUT_DIR;
 
 const files = getFilesListArray(input);
+const sortedFiles = files.sort((a, b) =>
+  a.localeCompare(b, "en", { numeric: true })
+);
 
-copy({ files, input, output, delay: 500 });
+copy({ files: sortedFiles, input, output, delay: 500 });
